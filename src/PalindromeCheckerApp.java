@@ -5,6 +5,7 @@ public class PalindromeCheckerApp {
     UC1 : Application Entry and Welcome Message
     UC2 : Print a Hardcoded Palindrome Result
     UC3 : Palindrome Check Using String Reverse
+    UC4: Character Array Based Palindrome Check
 
      @author Rishav
      @version 1.0
