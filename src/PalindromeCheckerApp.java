@@ -3,8 +3,8 @@ public class PalindromeCheckerApp {
 
     /*
     UC1 : Application Entry and Welcome Message
-    UC2: Print a Hardcoded Palindrome Result
-    UC3: Palindrome Check Using String Reverse
+    UC2 : Print a Hardcoded Palindrome Result
+
 
     @author Rishav
     @version 1.0
@@ -19,18 +19,15 @@ public class PalindromeCheckerApp {
         System.out.print("Input text: ");
         String input = sc.next();
 
-        //update reversed string
-        String reversed = "";
+        boolean isPalindrome = true;
 
-        //reverse string
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
+        for (int i = 0; i < input.length() / 2; i++) {
+            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
         }
 
-        // equals() compares with original string
-        boolean isPalindrome = input.equals(reversed);
-
-        System.out.println("Reversed String : " + reversed);
         System.out.println("Is it a Palindrome? : " + isPalindrome);
 
     }
