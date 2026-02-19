@@ -1,11 +1,12 @@
 import java.util.Scanner;
+
 public class PalindromeCheckerApp {
 
     /*
-    UC1 : Application Entry and Welcome Message
-    UC2 : Print a Hardcoded Palindrome Result
-    UC3 : Palindrome Check Using String Reverse
-    UC4: Character Array Based Palindrome Check
+     UC1 : Application Entry and Welcome Message
+     UC2 : Print a Hardcoded Palindrome Result
+     UC3 : Palindrome Check Using String Reverse
+     UC4 : Character Array Based Palindrome Check
 
      @author Rishav
      @version 1.0
@@ -21,18 +22,26 @@ public class PalindromeCheckerApp {
         System.out.print("Input text: ");
         String input = sc.next();
 
-        // String to store reversed value
-        String reversed = "";
+        // Convert String to character array
+        char[] chars = input.toCharArray();
 
+        // Two-pointer technique
+        int left = 0;
+        int right = chars.length - 1;
+        boolean isPalindrome = true;
 
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
+        while (left < right) {
+            // Array indexing for comparison
+            if (chars[left] != chars[right]) {
+                isPalindrome = false;
+                break;
+            }
+            left++;
+            right--;
         }
 
-        //Compare string both input and reversed
-        boolean isPalindrome = input.equals(reversed);
-
-        System.out.println("Reversed String : " + reversed);
         System.out.println("Is it a Palindrome? : " + isPalindrome);
+
+        sc.close();
     }
 }
