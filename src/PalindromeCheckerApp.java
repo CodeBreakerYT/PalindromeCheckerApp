@@ -4,7 +4,7 @@ public class PalindromeCheckerApp {
     /*
     UC1 : Application Entry and Welcome Message
     UC2 : Print a Hardcoded Palindrome Result
-UC3 : Palindrome Check Using String Reverse
+    UC3 : Palindrome Check Using String Reverse
 
      @author Rishav
      @version 1.0
@@ -23,7 +23,7 @@ UC3 : Palindrome Check Using String Reverse
         // String to store reversed value
         String reversed = "";
 
-        
+
         for (int i = input.length() - 1; i >= 0; i--) {
             reversed = reversed + input.charAt(i);
         }
