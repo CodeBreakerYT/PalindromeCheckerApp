@@ -1,17 +1,9 @@
-import java.util.Scanner;
-import java.util.Queue;
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.*;
 
 public class PalindromeCheckerApp {
 
     /*
-     UC1 : Application Entry and Welcome Message
-     UC2 : Print a Hardcoded Palindrome Result
-     UC3 : Palindrome Check Using String Reverse
-     UC4 : Character Array Based Palindrome Check
-     UC5 : Stack-Based Palindrome Checker
-     UC6 : Queue + Stack Based Palindrome Check
+     UC8: Linked List Based Palindrome Checker
 
      @author Rishav
      @version 1.0
@@ -27,23 +19,22 @@ public class PalindromeCheckerApp {
         System.out.print("Input text: ");
         String input = sc.next();
 
-        // Queue for FIFO behavior
-        Queue<Character> queue = new LinkedList<>();
+        // LinkedList for double-ended operations
+        LinkedList<Character> list = new LinkedList<>();
 
-        // Stack for LIFO behavior
-        Stack<Character> stack = new Stack<>();
-
-        // Enqueue and push characters
+        // Add characters to LinkedList
         for (char c : input.toCharArray()) {
-            queue.add(c);   // FIFO
-            stack.push(c);  // LIFO
+            list.add(c);
         }
 
         boolean isPalindrome = true;
 
-        // Compare dequeue (queue) and pop (stack)
-        while (!queue.isEmpty()) {
-            if (queue.remove() != stack.pop()) {
+        // Compare front and rear characters
+        while (list.size() > 1) {
+            char first = list.removeFirst();
+            char last = list.removeLast();
+
+            if (first != last) {
                 isPalindrome = false;
                 break;
             }
