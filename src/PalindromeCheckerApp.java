@@ -3,28 +3,11 @@ import java.util.*;
 public class PalindromeCheckerApp {
 
     /*
-     UC9: Recursive Based Palindrome Checker
+     UC10: Case-Insensitive & Space-Ignored Palindrome
 
      @author Rishav
      @version 1.0
      */
-
-    // Recursive method to check palindrome
-    private static boolean check(String s, int start, int end) {
-
-        // Base case: single character or empty string
-        if (start >= end) {
-            return true;
-        }
-
-        // If characters do not match
-        if (s.charAt(start) != s.charAt(end)) {
-            return false;
-        }
-
-        // Recursive call moving towards center
-        return check(s, start + 1, end - 1);
-    }
 
     public static void main(String[] args) {
 
@@ -35,9 +18,19 @@ public class PalindromeCheckerApp {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Input text: ");
-        String input = sc.next();
+        String input = sc.nextLine();
 
-        boolean isPalindrome = check(input, 0, input.length() - 1);
+        // Normalize: remove spaces and convert to lowercase
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+
+        boolean isPalindrome = true;
+
+        for (int i = 0; i < normalized.length() / 2; i++) {
+            if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
 
         System.out.println("Is it a Palindrome? : " + isPalindrome);
 
