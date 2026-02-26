@@ -3,8 +3,7 @@ import java.util.*;
 public class PalindromeCheckerApp {
 
     /*
-     UC1 : Application Entry and Welcome Message
-     UC7 : Deque-Based Optimized Palindrome Checker
+     UC8: Linked List Based Palindrome Checker
 
      @author Rishav
      @version 1.0
@@ -20,22 +19,22 @@ public class PalindromeCheckerApp {
         System.out.print("Input text: ");
         String input = sc.next();
 
-        // Deque for double-ended operations
-        Deque<Character> deque = new ArrayDeque<>();
+        // LinkedList for double-ended operations
+        LinkedList<Character> list = new LinkedList<>();
 
-        // Add characters to deque
+        // Add characters to LinkedList
         for (char c : input.toCharArray()) {
-            deque.addLast(c);
+            list.add(c);
         }
 
         boolean isPalindrome = true;
 
         // Compare front and rear characters
-        while (deque.size() > 1) {
-            char front = deque.removeFirst();
-            char rear = deque.removeLast();
+        while (list.size() > 1) {
+            char first = list.removeFirst();
+            char last = list.removeLast();
 
-            if (front != rear) {
+            if (first != last) {
                 isPalindrome = false;
                 break;
             }
